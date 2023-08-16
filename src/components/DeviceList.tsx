@@ -4,6 +4,7 @@ import DeviceComponent from './DeviceComponent';
 import axios from 'axios';
 import { setProducts } from '../actions/ProductActions';
 import {useTypedSelector} from "../hooks/useTypedSelector";
+import style from '../styles/DeviceList.module.scss'
 
 const DeviceList = () => {
     const products = useTypedSelector((state) => state.allProducts.products);
@@ -24,7 +25,7 @@ const DeviceList = () => {
 
 
     return (
-        <div className="ui grid container">
+        <div className={style.container}>
             <DeviceComponent />
         </div>
     );

@@ -1,6 +1,6 @@
-import React, {Component, useContext, useEffect} from 'react';
+import React from 'react';
 import {Navigate, Route, Routes} from "react-router-dom";
-import {authRoutes, publicRoutes} from "../routes";
+import { publicRoutes} from "../routes";
 import {SHOP_ROUTE} from "../utils/consts";
 
 
@@ -8,9 +8,6 @@ const AppRouter = () => {
     const isAuth = true
     return (
         <Routes>
-            {isAuth && authRoutes.map(({path, Component}) =>
-                <Route key={path} path={path} Component={Component}/>
-            )}
             {publicRoutes.map(({path, Component}) =>
                 <Route key={path} path={path} Component={Component}/>
             )}

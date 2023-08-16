@@ -4,12 +4,19 @@ import axios from "axios";
 import {useDispatch} from "react-redux";
 import {useTypedSelector} from "../hooks/useTypedSelector";
 import {selectedProduct} from "../actions/ProductActions";
+import styles from '../styles/DevicePage.module.scss'
+import {ActionTypes} from "../utils/consts";
 
 const DevicePage = () => {
     let product  = useTypedSelector((state) => state.product)
     const {id} = useParams();
     const dispatch = useDispatch()
     const selectedProductItem = product.product;
+    const addToCart = () => {
+        if (selectedProductItem) {
+            dispatch({type: ActionTypes.ADD_TO_CART, payload: selectedProductItem});
+        }
+    };
 
 
     const { image, title, price, category, description } = selectedProductItem || {};
@@ -32,28 +39,36 @@ const DevicePage = () => {
 
     }, [id])
     return (
-        <div className="ui grid container">
+        <div className={styles.container}>
             {Object.keys(product).length === 0 ? (
                 <div>...Loading</div>
             ) : (
-                <div className="ui placeholder segment">
-                    <div className="ui two column stackable center aligned grid">
-                        <div className="middle aligned row">
-                            <div className="column lp">
-                                <img className="ui fluid image" src={image} />
+                <div className={styles.segment}>
+                    <div className={styles.segment}>
+                        <div className={styles.row}>
+                            <div className={styles.colum}>
+                                <img className={styles.image} src={image} />
                             </div>
-                            <div className="column rp">
-                                <h1>{title}</h1>
-                                <h2>
-                                    <a className="ui teal tag label">${price}</a>
-                                </h2>
-                                <h3 className="ui brown block header">{category}</h3>
-                                <p>{description}</p>
-                                <div className="ui vertical animated button">
+                            <div className={styles.title}>
+                                <div>
+                                    <h1>{title}</h1>
+                                </div>
+                                <div>
+                                    <h2>
+                                        <a className="ui teal tag label">${price}</a>
+                                    </h2>
+                                </div>
+                                <div>
+                                    <h3 className="ui brown block header">{category}</h3>
+                                </div>
+                                <div>
+                                    <p>{description}</p>
+                                </div>
+                                <div className="ui vertical animated button" >
                                     <div className="hidden content">
                                         <i className="shop icon"></i>
                                     </div>
-                                    <div className="visible content">Add to Cart</div>
+                                    <button className={styles.add} onClick={addToCart}>Add to Cart</button>
                                 </div>
                             </div>
                         </div>
