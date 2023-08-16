@@ -1,11 +1,9 @@
-import React, {useState} from 'react';
+import React  from 'react';
 import styles from '../styles/NavBar.module.scss'
 import {Link} from "react-router-dom";
 import {BASKET_ROUTE, SHOP_ROUTE} from "../utils/consts";
 import basket from '../images/Vector.png'
-import lupa from '../images/lupa.svg'
-import {AiOutlineClose} from 'react-icons/ai'
-import {FiMenu} from "react-icons/fi";
+
 
 
 const NavBar = () => {

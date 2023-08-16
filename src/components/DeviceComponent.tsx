@@ -6,7 +6,7 @@ import style from '../styles/DeviceComponent.module.scss'
 const DeviceComponent = () => {
     const products = useTypedSelector((state) => state.allProducts.products);
 
-    const itemsPerRow = 4; // Чтобы на устройстве было по 4 элемента в ряду
+    const itemsPerRow = 4;
     const rowsCount = Math.ceil(products.length / itemsPerRow);
 
     const renderList = [];

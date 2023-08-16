@@ -55,18 +55,18 @@ const DevicePage = () => {
                                 </div>
                                 <div>
                                     <h2>
-                                        <a className="ui teal tag label">${price}</a>
+                                        <a className="label">${price}</a>
                                     </h2>
                                 </div>
                                 <div>
-                                    <h3 className="ui brown block header">{category}</h3>
+                                    <h3 className="header">{category}</h3>
                                 </div>
                                 <div>
                                     <p>{description}</p>
                                 </div>
-                                <div className="ui vertical animated button" >
-                                    <div className="hidden content">
-                                        <i className="shop icon"></i>
+                                <div className="button" >
+                                    <div className="content">
+                                        <i className="icon"></i>
                                     </div>
                                     <button className={styles.add} onClick={addToCart}>Add to Cart</button>
                                 </div>

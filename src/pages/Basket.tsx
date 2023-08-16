@@ -8,14 +8,14 @@ const Basket = () => {
     const {cart} = useTypedSelector((state) => state.cart);
     const dispatch = useDispatch()
     const [total, setTotal] = useState<number>();
-    const [selectedProductItem, setSelectedProductItem] = useState<number | null>(null); // Состояние для отслеживания выбранного продукта
+    const [selectedProductItem, setSelectedProductItem] = useState<number | null>(null);
 
     const removeFromCart = (productId: number) => {
         dispatch({ type: ActionTypes.REMOVE_FROM_CART, payload: { id: productId } });
     };
 
     useEffect(() => {
-        const calculatedTotal = cart.reduce((acc, curr) => acc + curr.price, 0); // Используйте правильно reduce
+        const calculatedTotal = cart.reduce((acc, curr) => acc + curr.price, 0);
         setTotal(calculatedTotal);
     }, [cart])
     return (
@@ -26,7 +26,7 @@ const Basket = () => {
                         <div className={styles.content} key={product.id}>
                             <img className={styles.img} src={product.image} alt={product.title} />
                             {product.title}
-                            <button className={styles.button} onClick={() => removeFromCart(product.id)}>   X</button>
+                            <button className={styles.button} onClick={() => removeFromCart(product.id)}>X</button>
                         </div>
                 )}
                 </div>
